@@ -57,7 +57,7 @@ button {
 }
 
 .faq-card {
-    max-width: 42rem;
+    max-width: 37.5rem;
     margin-inline: 1.5rem;
     margin-block-end: 2rem;
     margin-block-start: 9rem;
@@ -90,12 +90,20 @@ button {
     font-weight: 600;
     color: var(--purple-950);
     text-align: left;
+    transition: color 0.2s ease;
 }
 
 .accordion__text {
     font-size: var(--font-p);
     color: var(--purple-600);
     line-height: 1.5;
+    overflow: hidden;
+    transition: padding-block-start 0.3s ease;
+}
+
+.accordion__panel[aria-hidden="false"] 
+.accordion__text {
+    padding-block-start: 1.5rem;
 }
 
 .accordion__btn {
@@ -104,6 +112,22 @@ button {
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    transition: transform 0.15s ease;
+}
+
+.accordion__btn:hover .accordion__title,
+.accordion__btn:focus-visible .accordion__title {
+    color: var(--purple-accent)
+}
+
+.accordion__btn:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid var(--purple-accent);
+    outline-offset: 4px;
+}
+
+.accordion__btn:active {
+    transform: scale(0.99);
 }
 
 .accordion__icon {
@@ -113,14 +137,23 @@ button {
 .accordion__item {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
     padding-block: 1.4em;
     border-block-end: 1px solid var(--purple-100);
 }
 
 .accordion__item:last-child {
     border-block-end: none;
-    padding-block-end: 0;
+    padding-block-end: 1rem;
+}
+
+.accordion__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.accordion__panel[aria-hidden="false"] {
+    grid-template-rows: 1fr;
 }
 
 .attribution {
@@ -141,3 +174,28 @@ button {
     text-decoration: underline;
     color: var(--purple-accent);
 }
+
+@media (prefers-reduced-motion: reduce) { 
+    .accordion__panel, .accordion__text, 
+    .accordion__title, .accordion__btn { 
+        transition: none; 
+    } 
+}
+
+/* @media (min-width: 48em) {
+    body {
+        background-image: url('./assets/images/background-pattern-desktop.svg');
+    }
+
+    .faq-title {
+        font-size: 2.8rem;
+    }
+
+    .faq-icon {
+        max-height: 2.2em;
+    }
+
+    .faq-card {
+        padding: 2.2rem;
+    }
+} */
