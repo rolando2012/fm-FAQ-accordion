@@ -1,0 +1,84 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --white: hsl(0, 100%, 100%);
+    --purple-100: hsl(275, 100%, 97%);
+    --purple-600: hsl(292, 16%, 49%);
+    --purple-950: hsl(292, 42%, 14%);
+    --purple-accent: hsl(281, 83%, 54%);
+
+    --font-p: 1rem;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/WorkSans-Italic-VariableFont_wght.ttf');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.faq-title {
+    color: var(--purple-950);
+}
+
+.accordion {
+    list-style: none;
+}
+
+.accordion__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--purple-950);
+}
+
+.accordion__text {
+    font-size: var(--font-p);
+    color: var(--purple-600);
+}
+
+.attribution {
+    font-size: 0.875rem;
+    color: var(--purple-600);
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--purple-950);
+}
+
+.attribution a:hover,
+.attribution a:focus {
+    text-decoration: underline;
+    color: var(--purple-accent);
+}
