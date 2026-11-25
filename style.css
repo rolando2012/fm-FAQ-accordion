@@ -10,6 +10,7 @@
     --purple-600: hsl(292, 16%, 49%);
     --purple-950: hsl(292, 42%, 14%);
     --purple-accent: hsl(281, 83%, 54%);
+    --purple-shadow: hsla(292, 42%, 14%, 0.15);
 
     --font-p: 1rem;
 }
@@ -33,6 +34,13 @@
 body {
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
+    background-color: var(--purple-100);
+    background-image: url('./assets/images/background-pattern-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+    display: grid;
+    place-items: center;
 }
 
 img {
@@ -48,8 +56,29 @@ button {
     cursor: pointer;
 }
 
+.faq-card {
+    max-width: 42rem;
+    margin-inline: 1.5rem;
+    margin-block-end: 2rem;
+    margin-block-start: 9rem;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: 0 2rem 3rem -1rem var(--purple-shadow);
+}
+
+.faq-header {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
 .faq-title {
     color: var(--purple-950);
+}
+
+.faq-icon {
+    max-height: 1.65em;
 }
 
 .accordion {
@@ -58,16 +87,46 @@ button {
 
 .accordion__title {
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--purple-950);
+    text-align: left;
 }
 
 .accordion__text {
     font-size: var(--font-p);
     color: var(--purple-600);
+    line-height: 1.5;
+}
+
+.accordion__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.accordion__icon {
+    flex-shrink: 0;
+}
+
+.accordion__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding-block: 1.4em;
+    border-block-end: 1px solid var(--purple-100);
+}
+
+.accordion__item:last-child {
+    border-block-end: none;
+    padding-block-end: 0;
 }
 
 .attribution {
+    margin-block: 1rem;
+    margin-inline: 1.5rem;
+    text-align: center;
     font-size: 0.875rem;
     color: var(--purple-600);
 }
